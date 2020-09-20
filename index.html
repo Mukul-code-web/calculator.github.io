@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A simple calculator</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:600,700" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/style.css">
+
+	<script type="text/javascript">
+
+       var data=true;		
+
+		function number(value){
+			document.getElementById("output-value").innerHTML+=value;
+			return data=true;
+		}
+		function operator(value){
+			if(data){
+			document.getElementById("output-value").innerHTML+=value;
+			return data=false;
+		}
+		}
+		function clean(){
+			document.getElementById("output-value").innerHTML="";
+		}
+
+		function cal(){
+			var x=document.getElementById("output-value").innerHTML;
+			var y=eval(x);
+			document.getElementById("history-value").innerHTML=y;
+		}
+
+		function Decrement(){
+			var z= document.getElementById("output-value").innerHTML;
+			var s= z.split("");
+			s.pop();
+			var j= s.join("");
+			var str= j.toString();
+		    document.getElementById("output-value").innerHTML=str;
+		    return data=true;
+		}
+	</script>
+</head>
+
+<body>
+	<div id="Container">
+		<div id="Calculator">
+			<div id="result">
+				<div id="output">
+					<p id="output-value"></p>
+				</div>
+				<div id="history">
+					<p id="history-value"></p>
+				</div>
+			</div>
+			<div id="keyboard">
+				<input type="button" value="C" class="Operator" onclick="Decrement()">
+				<input type="button" value="CE" class="Operator" onclick="clean()">
+				<input type="button" value="%" class="Operator" onclick="operator(value)">
+				<input type="button" value="/" class="Operator" onclick="operator(value)">
+				<input type="button" value="7" class="Number" onclick="number(value)">
+	            <input type="button" value="8" class="Number" onclick="number(value)">
+	            <input type="button" value="9" class="Number" onclick="number(value)">
+	            <input type="button" value="*" class="Operator" onclick="operator(value)">
+	            <input type="button" value="4" class="Number" onclick="number(value)">
+	            <input type="button" value="5" class="Number" onclick="number(value)">
+	            <input type="button" value="6" class="Number" onclick="number(value)">
+	            <input type="button" value="-" class="Operator" onclick="operator(value)">
+				<input type="button" value="1" class="Number" onclick="number(value)">
+	            <input type="button" value="2" class="Number" onclick="number(value)">
+	            <input type="button" value="3" class="Number" onclick="number(value)">
+	            <input type="button" value="+" class="Operator" onclick="operator(value)">
+	            <input type="button" value="" class="Empty">
+	            <input type="button" value="0" class="Number" onclick="number(value)">
+	            <input type="button" value="" class="Empty">
+	            <input type="button" value="=" class="Operator" onclick="cal()">
+	        </div>
+	    </div>
+	</div>
+</body>
+
+</html>
